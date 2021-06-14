@@ -1,7 +1,7 @@
 import React from 'react';
 import './style/Main.scss';
 
-class Main extends React.Component {
+class Form extends React.Component {
   
     constructor(props) {
       super(props);
@@ -11,17 +11,22 @@ class Main extends React.Component {
       };
     }
   
-    addurl = event => {
+    addurl = async event => {
         event.preventDefault();
-        const url = event.target.url.value;
-        const method = event.target.method.value;
-        const newState = {url : url , method : method};
+        const url =await event.target.url.value;
+        const method =await event.target.method.value;
+        const newState =await {url : url , method : method};
         this.setstate(newState);
     }
-  handelurl = event=>{
+  handelurl =async event=>{
     event.preventDefault();
+    let raw = await fetch('https://swapi.dev/api/people');
+    let data = await raw.json();
+    console.log('this is data from api', data);
+    const header = raw.headers;
+    console.log('this is data from api', header);
 
-      this.setState({url : event.target.value})
+    this.props.handler(data, header);
   }
   changeMethod = (event) => {
     event.preventDefault();
@@ -52,4 +57,4 @@ class Main extends React.Component {
     }
   }
   
-  export default Main;
+  export default Form;
