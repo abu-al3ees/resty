@@ -1,5 +1,6 @@
 {
   "name": "resty",
+  "homepage": "https://abu-al3ees.github.io/resty/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
