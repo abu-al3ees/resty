@@ -21,6 +21,7 @@ class Form extends React.Component {
   handelurl =async event=>{
     event.preventDefault();
     let raw = await fetch('https://swapi.dev/api/people');
+    console.log('this is  ----->', event.target.url);
     let data = await raw.json();
     console.log('this is data from api', data);
     const header = raw.headers;
