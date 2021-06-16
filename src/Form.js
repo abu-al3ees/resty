@@ -11,51 +11,107 @@ class Form extends React.Component {
       };
     }
   
-    addurl = async event => {
-        event.preventDefault();
-        const url =await event.target.url.value;
-        const method =await event.target.method.value;
-        const newState =await {url : url , method : method};
-        this.setstate(newState);
-    }
-  handelurl =async event=>{
-    event.preventDefault();
-    let raw = await fetch('https://randomuser.me/api/?results=10');
-    console.log('this is  ----->', event.target.url);
-    let data = await raw.json();
-    console.log('this is data from api', data);
-    const header = raw.headers;
-    console.log('this is data from api', header);
+    handleSubmit = async event => {
+      event.preventDefault();
 
-    this.props.handler(data, header);
-  }
-  changeMethod = (event) => {
-    event.preventDefault();
-    this.setState({ method: event.target.value });
-  };
-
-   
-    render() {
-      return (
-          <div id="container">
-            <form>
-          <label>URL :</label>
-          <input onChange={this.handelurl}type="text" name="url" />
-          <button type="button" onClick={this.addUrl}>GO!</button> <br></br>
-            <button value={`GET`} onClick={this.changeMethod}>GET</button>
-            <button value={`POST`}onClick={this.changeMethod}> POST</button>
-            <button value={`PUT`} onClick={this.changeMethod}>PUT</button>
-            <button value={`DELETE`}onClick={this.changeMethod}> DELETE</button>
-        </form>
-             <section>
-            <p id ="mainp"> {this.state.method} &nbsp;
-            
-            {this.state.url} </p>
-            </section>
-            
-          </div>
-      )
-    }
-  }
+      await this.setState({
+        urls: event.target.url.value, 
+        methods: event.target.method.value
+      });
   
-  export default Form;
+      this.props.updateResults({...this.state});
+     
+  }
+
+ 
+
+  render() {
+    return (
+      <section className="App-form">
+        <form onSubmit={this.handleSubmit}>
+          <label>URL:</label>
+          <input id="input-text" name="url" type='text' />
+          <button type="submit">GO!</button>
+          <div id="rest-buttons">
+            <div className="method-buttons">
+              <label>
+                <input name="method" type="radio" value="GET" />
+                GET
+              </label>
+              <label>
+                <input name="method" type="radio" value="POST" />
+               POST
+              </label>
+              <label>
+                <input name="method" type="radio" value="PUT" />
+                PUT
+              </label>
+              <label>
+                <input  name="method" type="radio" value="DELETE" />
+               DELETE
+              </label>
+            </div>
+          </div>
+        </form>
+      </section>
+    )
+  }
+}
+
+export default Form;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
