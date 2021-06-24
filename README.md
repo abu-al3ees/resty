@@ -8,4 +8,6 @@
 -----------------
 
 
-[deploy link](https://sad-morse-befff9.netlify.app/)
+[deploy link on netlify](https://sad-morse-befff9.netlify.app/)
+----------------------
+[deploy link on github](https://abu-al3ees.github.io/resty/)
