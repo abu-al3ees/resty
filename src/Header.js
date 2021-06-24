@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+//import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './style/Header.scss';
 const Header=()=>{
     return (
@@ -10,13 +10,13 @@ const Header=()=>{
             <nav>
        <ul>
         <li>
-           <Link exact  to="/">Home</Link>
+           <a href="/">Home</a>
         </li>
         <li>
-           <Link to="/history">History</Link>
+           <a href="/history">History</a>
         </li>
         <li>
-           <Link to="/help">Help</Link>
+           <a href="/help">Help</a>
         </li>
        </ul>
     </nav>
