@@ -4,8 +4,8 @@
 
 
 -------------------------
-
-
+![uml](./uml.png)
+-----------------
 
 
 [deploy link](https://sad-morse-befff9.netlify.app/)
