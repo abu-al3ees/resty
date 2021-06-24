@@ -32,7 +32,7 @@ class App extends React.Component {
     
         const request = await fetch(userInput.urls, {methods: userInput.methods });
         const data = await request.json();
-        const headers = request.headers;
+       
     
         let dataInstance = {
           url: userInput.urls,
